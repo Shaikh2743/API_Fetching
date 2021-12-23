@@ -1,12 +1,39 @@
 .App {
-	text-align: center;
-	color: Green;
+	text-align: left;
+	color: black;
+	margin: 10% 5% ;
+}
+form{
+	display: flex;
+}
+img {
+    height: 2rem;
+    margin-left: -3rem;
+	cursor: pointer;
+}
+button{
+	background: transparent;
+	border: none;
+}
+.speaker {
+	box-shadow: 2px 2px cyan;
+    border: 1px solid;
+    border-radius: 100%;
+
 }
 h1{
   color: #2730b4;
 }
 h2 {
   color: black;
+  font-weight: 300;
+}
+input {
+    width: 30rem;
+    height: 2rem;
+    border-radius: 5px;
+    border: 1px solid lavender;
+	padding: 1rem;
 }
 .App-header {
 	background-color: #282c34;
@@ -21,10 +48,19 @@ h2 {
 .App-link {
 	color: #61dafb;
 }
-.syno{
-	margin-left: 1%;
+.syno {
+    margin-left: 1%;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 10px;
+    border: 1px solid #b1a9a9;
 }
- 
+ li {
+	 text-align: left;
+ }
+ .items {
+	 color: black;
+ }
 
 @keyframes App-logo-spin {
 	from {

@@ -1,5 +1,7 @@
 import React from "react";
 import './App.css';
+import Logo from './698956.png'; 
+import Speaker from './speaker.jpg';
 class App extends React.Component {
 
 	// Constructor
@@ -9,9 +11,10 @@ class App extends React.Component {
 		this.state = {
 			items: [],
 			SearchData: '',
-			myurl: '',
 			DataisLoaded: false,
 			a: [],
+			audio : "",
+			isPlaying : false,
 		};
 	}
 
@@ -22,88 +25,101 @@ class App extends React.Component {
 			SearchData: event.target.value
 		})
 		console.log(this.state.SearchData)
-		
-
-
-
 	}
-	setData = (e) => {
-		e.preventDefault();
-		this.setState({
-			myurl: `https://api.dictionaryapi.dev/api/v2/entries/en/${this.state.SearchData}`,
-		})
-	}
+
+	//  audio = () =>{
+	// 	 if(this.state.isPlaying) {
+	// 		 this.state.audio.pause()
+	// 	 }
+	// 	 else {
+	// 		 this.state.audio.play()
+	// 	 }
+	// 	this.setState({
+	// 		isPlaying: !isPlaying 
+	// 	});
+	// };
+			//  console.log(a)
+		//  new Audio(a).play();
+		//  new Audio(a).pause();
+		// console.log("audio");
+
+	
+	
+
+
+
+	// setData = (e) => {
+	// 	e.preventDefault();
+	// 	this.setState({
+	// 		myurl:"https://api.dictionaryapi.dev/api/v2/entries/en/"+this.state.SearchData,
+	// 	})
+	// 	console.log(this.state.myurl)
+	// 	this.set();
+	// }
 	// ComponentDidMount is used to
 	// execute the code
-	componentDidMount() {
+	
 		//if(this.ud!==""){
 		//console.log(ud);
 
-		console.log(this.state.myurl, "hello")
-		fetch(this.state.myurl)
-			.then((res) => res.json())
-			.then((json) => {
-				console.log(json)
-				this.setState({
-					items: json,
-					DataisLoaded: true
-				});
-			})
-		//	}
+	add = (a) =>{
+		new Audio(a).play();
 	}
 
-	componentDidUpdate() {
-		fetch(this.state.myurl)
+		setData=(e)=> {
+		e.preventDefault();
+
+		
+		fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${this.state.SearchData}`)
 			.then((res) => res.json())
 			.then((json) => {
+				
 				console.log(json)
 				this.setState({
 					items: json,
 					DataisLoaded: true
 				});
+
 			})
 		
-
 	}
 
+	
 	render() {
 
 		console.log(this.state)
 
-		const { DataisLoaded, items } = this.state;
+		const { /* DataisLoaded, */ items } = this.state;
 		// if (!DataisLoaded) return <div>
 		// 	<h1> Please wait some time data is loading.... </h1> </div>;
 
 		return (
 			<div className="App">
+				<h2> Dictionary  </h2>
 				<form onSubmit={this.setData}>
-					<input type="search" onChange={this.search}></input>
+					<span><input type="search" placeholder="search for word" onChange={this.search}></input></span>
+					<span className="search" onClick={this.setData}><img src={Logo}></img></span>
 				</form>
-				<h2> Enter Data to search  </h2> {
-					items./*filter((el) => {
-					
-
-						if (this.state.SearchData === "") {
-							console.log("hi123")
-							return null;
-						} else if (el.word.startsWith(this.state.SearchData)) {
-							console.log("hi")
-							return el;
-						}
+				 {
+					items.map((item, i) => (
 						
-					}).*/map((item, i) => (
-						
-						<ul key={i} >
-							word: {item.word} ,
-							phonetic: {item.phonetic} ,
-							text : {item.phonetics[0].text},
-							audio : {item.phonetics[0].audio},
-							partOfSpeech : {item.meanings[0].partOfSpeech} ,
-							definition :{item.meanings[0].definitions[0].definition},
-							example :{item.meanings[0].definitions[0].example},
-							synonyms :{item.meanings[0].definitions[0].synonyms.map((i) => { return <span className="syno">{i},</span>; })}
-
-						</ul>
+						<ol key={i} >
+								{/* <li>{ item.DataisLoaded ? "data" :"no-data to show"} ,</li> */}
+								
+							
+								<li><br/><button onClick={/* this.audio(item.phonetics[0].audio) */
+							() => this.add(item.phonetics[0].audio)
+							/* () => { new Audio(item.phonetics[0].audio).play()	 } */}>
+								<img className="speaker" src={Speaker}></img></button> <h1>{item.word} </h1></li>
+							{/* <li>audio :{item.phonetics[0].audio} <br/></li> */}
+							<li>phonetic:<br/> {item.phonetic} </li>
+							<li>text :<br/> {item.phonetics[0].text}</li>
+							<li>partOfSpeech :<br/> {item.meanings[0].partOfSpeech} </li>
+							<li>definition :<br/>{item.meanings[0].definitions[0].definition}</li>
+							<li>example :<br/>{item.meanings[0].definitions[0].example}</li>
+							<li>similar :<br/>{item.meanings[0].definitions[0].synonyms.map((i) => {
+								 return <span className="syno">{i},</span>; })}</li>																																																	
+						</ol>
 					))
 				}
 
