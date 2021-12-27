@@ -15,12 +15,12 @@ button{
 	border: none;
 }
 .speaker {
-	box-shadow: 2px 2px cyan;
+    box-shadow: 2px 2px cyan;
     border: 1px solid;
     border-radius: 100%;
-	margin-bottom: -2rem;
-	margin-left: -3rem;
-
+    margin-top: 2rem;
+    margin-bottom: -3.6rem;
+    margin-left: -5rem;
 }
 ::placeholder{
 	font-size: 1.5rem;
@@ -44,6 +44,7 @@ input {
     border-top: none;
     border-left: none;
     border-right: none;
+	/* box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px; */
 }
 .App-header {
 	background-color: #282c34;
@@ -57,6 +58,12 @@ input {
 }
 .App-link {
 	color: #61dafb;
+}
+ul{
+	background-color: beige;
+	border-radius: 3%;
+	padding-left: 5%;
+	padding-bottom: 1%;
 }
 
  li {

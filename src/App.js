@@ -94,20 +94,17 @@ class App extends React.Component {
 				<h2> Dictionary  </h2>
 				<form onSubmit={this.setData}>
 					<span><input type="search" placeholder="Try it here......" onChange={this.search}></input></span>
-					<span className="search" onClick={this.setData}><img  src={Logo}></img></span>
+					<span className="search" onClick={this.setData}><img src={Logo}></img></span>
 				</form>
 				{
 					items.map((item, i) => (
 
 						<ul key={i} >
-							{/* <li> error  {Object.values(item[1])}</li> */}
-
-							<button onClick={
-								() => this.add(item.phonetics[0].audio)}>
-								<img className="speaker" src={Speaker}></img></button> <h1>{item.word} </h1>
-							{/* <li>audio :{item.phonetics[0].audio} <br/></li> */}
-
-
+							<button /* onClick={
+								() => this.add(item.phonetics[0].audio)} */>
+								<img className="speaker" onClick={
+								() => this.add(item.phonetics[0].audio)} src={Speaker}></img></button> <h1>{item.word} </h1>
+								
 							<li>Phonetic:</li>
 							<ul>	<li> {item.phonetic} </li></ul>
 
@@ -120,19 +117,11 @@ class App extends React.Component {
 
 									item.meanings.map((meaning) => {
 										return (
-
 											this.speech(meaning)
-
 										)
 									})
 								}
 							</li>
-							{/* <ul  className="synonms">synonyms :<br /><li>
-							{item.meanings[0].definitions[0].synonyms.map((i) => {
-								return <div className="syno">{i},</div>;
-							})}</li>
-							</ul> */}
-
 							<li className="synonms">Synonyms :
 								<ul>
 									<li>
