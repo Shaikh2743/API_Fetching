@@ -93,8 +93,8 @@ class App extends React.Component {
 			<div className="App">
 				<h2> Dictionary  </h2>
 				<form onSubmit={this.setData}>
-					<span><input type="search" placehulder="search for word" onChange={this.search}></input></span>
-					<span className="search" onClick={this.setData}><img src={Logo}></img></span>
+					<span><input type="search" placeholder="Try it here......" onChange={this.search}></input></span>
+					<span className="search" onClick={this.setData}><img  src={Logo}></img></span>
 				</form>
 				{
 					items.map((item, i) => (

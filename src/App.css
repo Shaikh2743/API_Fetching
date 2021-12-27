@@ -8,7 +8,6 @@ form{
 }
 img {
     height: 2rem;
-    margin-left: -3rem;
 	cursor: pointer;
 }
 button{
@@ -20,22 +19,31 @@ button{
     border: 1px solid;
     border-radius: 100%;
 	margin-bottom: -2rem;
+	margin-left: -3rem;
 
+}
+::placeholder{
+	font-size: 1.5rem;
 }
 
 h1{
-  color: #2730b4;
+  color: black;
 }
 h2 {
   color: black;
   font-weight: 300;
 }
 input {
+	outline: none;
     width: 30rem;
     height: 2rem;
-    border-radius: 5px;
-    border: 1px solid lavender;
-	padding: 1rem;
+	font-size: 2rem;
+	color: #34495e;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 .App-header {
 	background-color: #282c34;
