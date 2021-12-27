@@ -57,6 +57,17 @@ input {
  .items {
 	 color: black;
  }
+ /* .syno {
+    cursor: pointer;
+    font-size: 1rem;
+    border: 1px solid #c3b8b8;
+    width:max-content;
+    border-radius: 35%;
+    margin-top: 0.5rem;
+    text-align: center;
+    padding: 0.3rem;
+	box-shadow: rgb(0 0 0 / 30%) 2px 3px 2px;
+} */
 
 @keyframes App-logo-spin {
 	from {

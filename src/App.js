@@ -24,25 +24,23 @@ class App extends React.Component {
 				<li >	 Part Of Speech
 					<ul>
 						<li>
-						{meaning.partOfSpeech}
+							{meaning.partOfSpeech}
+							<ul>
+								<li>  Example
+									{meaning.definitions.map((definition) => {
+										return (
+											<ul>
+												<li>
+													{definition.definition}
 
-						<ul> <li>Example
+													{definition.example}
 
-						{meaning.definitions.map((definition) => {
-							return (
-								<ul>
-									<li>
-										{definition.definition}
-
-										{definition.example}
-
-										{definition.synonyms}
-									</li>
-								</ul>
-							)
-						})}</li></ul>
-
-					</li>
+													{definition.synonyms}
+												</li>
+											</ul>
+										)
+									})}</li></ul>
+						</li>
 					</ul>
 				</li>
 			</ul>
