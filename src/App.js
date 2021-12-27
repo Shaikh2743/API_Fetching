@@ -23,25 +23,26 @@ class App extends React.Component {
 			<ul>
 				<li >	 Part Of Speech
 					<ul>
+						<li>
 						{meaning.partOfSpeech}
+
+						<ul> <li>Example
 
 						{meaning.definitions.map((definition) => {
 							return (
 								<ul>
 									<li>
 										{definition.definition}
-									</li>
 
-									<li>
 										{definition.example}
-									</li>
 
-									<li>
 										{definition.synonyms}
 									</li>
 								</ul>
 							)
-						})}
+						})}</li></ul>
+
+					</li>
 					</ul>
 				</li>
 			</ul>
@@ -134,7 +135,7 @@ class App extends React.Component {
 							})}</li>
 							</ul> */}
 
-							<li className="synonms">synonyms :
+							<li className="synonms">Synonyms :
 								<ul>
 									<li>
 										{item.meanings[0].definitions[0].synonyms.map((i) => {
