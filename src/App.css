@@ -19,6 +19,7 @@ button{
 	box-shadow: 2px 2px cyan;
     border: 1px solid;
     border-radius: 100%;
+	margin-bottom: -2rem;
 
 }
 h1{
@@ -48,13 +49,7 @@ input {
 .App-link {
 	color: #61dafb;
 }
-.syno {
-    margin-left: 1%;
-    cursor: pointer;
-    margin-right: 5px;
-    border-radius: 10px;
-    border: 1px solid #b1a9a9;
-}
+
  li {
 	 text-align: left;
  }
